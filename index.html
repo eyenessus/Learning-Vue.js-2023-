@@ -9,20 +9,17 @@
     <div id="app">
         <h1>My first learn of Vue.js</h1>
         <p>I'm {{name}} {{lastName}}</p>
+
+        <ul>
+            <li v-for="(product,index) in products" :key="index">
+                <p>{{product.title}}</p>
+                <strong v-if="product.starts > 0">{{product.starts}}</strong>
+                <img v-bind:src="product.image" v-bind:alt="product.title" style="width: 100px;" >
+            </li>
+        </ul>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <script>
-        var app = {
-            data(){
-                return {
-                    name:'Emerson',
-                    lastName:'Sousa',
-                }
-            }
-        }
-    
-        Vue.createApp(app).mount('#app')
-    </script>
+    <script src="./app.js"></script>
 </body>
 </html>
