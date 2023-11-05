@@ -20,6 +20,17 @@ var app = {
                 }
             ],
             cart:[],
+            styles:{
+                color:'white',
+                backgroundColor:'black',
+            },
+             themeBlack:true,
+         
+        }
+    },
+    computed:{
+        fullName(){
+            return this.name + ' ' + this.lastName
         }
     },
     methods: {
@@ -33,6 +44,16 @@ var app = {
         },
         removeCart(product){
             this.cart  = this.cart.filter((prod,index)=> product != prod)
+        },
+        toogleTheme(){
+            this.themeBlack = !this.themeBlack;
+            if(this.themeBlack){
+                this.styles.color = 'white',
+                this.styles.backgroundColor = 'black'
+            }else{
+                this.styles.color = 'black',
+                this.styles.backgroundColor = 'white'
+            }
         }
     },
 }

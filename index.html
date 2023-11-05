@@ -1,30 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vue.js Learning 3</title>
 </head>
+
 <body>
     <div id="app">
-        <h1>My first learn of {{title}}</h1>
-        <p>I'm {{name}} {{lastName}}</p>
-        <hr>
-        <h3>Carrinho ({{cart.length}})</h3>
-        <hr>
-        <ul>
-            <li v-for="(product,index) in products" :key="index">
-                <p>{{product.title}}</p>
-                <strong v-if="product.starts > 0">{{product.starts}}</strong>
-                <img v-bind:src="product.image" v-bind:alt="product.title" style="width: 100px;" >
-                <a href="" V-on:click.prevent="addCart(product)" v-if="!inCart(product)">ADD CART</a>
-            <a href="" v-else @click.prevent="removeCart(product)">REMOVE CART</a>
-            </li>
-        </ul>
-      
+        <div :style="styles">
+            <h1>My first learn of {{title}}</h1>
+            <p>I'm {{fullName}}</p>
+            <hr>
+            <h3>Carrinho ({{cart.length}})</h3>
+            <hr>
+            <label for="themeBlack">
+               <input type="checkbox" :checked="themeBlack" name="themeBlack" id="themeBlack" @click="toogleTheme"> Tema escuro
+            </label>
+            <hr>
+            <ul>
+                <li v-for="(product,index) in products" :key="index">
+                    <p>{{product.title}}</p>
+                    <strong v-if="product.starts > 0">{{product.starts}}</strong>
+                    <img v-bind:src="product.image" v-bind:alt="product.title" style="width: 100px;">
+                    <a href="#" V-on:click.prevent="addCart(product)" v-if="!inCart(product)">ADD CART</a>
+                    <a href="#" v-else @click.prevent="removeCart(product)">REMOVE CART</a>
+                </li>
+            </ul>
+
+        </div>
     </div>
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./app.js"></script>
 </body>
+
 </html>
