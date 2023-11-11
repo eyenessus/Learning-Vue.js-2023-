@@ -17,15 +17,17 @@
             <h3>Carrinho ({{cart.length}})</h3>
             <hr>
             <label for="themeBlack">
-               <input type="checkbox" :checked="themeBlack" name="themeBlack" id="themeBlack" @click="toogleTheme"> Tema escuro
+                <input type="checkbox" :checked="themeBlack" name="themeBlack" id="themeBlack" @click="toogleTheme">
+                Tema escuro
             </label>
             <hr>
             <ul>
                 <li v-for="(product,index) in products" :key="index">
-                    <p>{{product.title}}</p>
-                    <strong v-if="product.starts > 0">{{product.starts}}</strong>
-                    <img v-bind:src="product.image" v-bind:alt="product.title" style="width: 100px;">
-                    <button href="#" @click.prevent="addCart(product)" :disabled="inCart(product)" :class="[inCart(product) ? 'button-disabled' : '']">ADD CART</button>
+                    <product-details 
+                    :product="product" 
+                    :product-in-cart="inCart(cart)">
+                    </product-details>
+
                     <!-- <a href="#" v-else @click.prevent="removeCart(product)">REMOVE CART</a> -->
                 </li>
             </ul>
@@ -35,6 +37,12 @@
 
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="./app.js"></script>
+    <script src="/Components/productsDetails.js"></script>
+    <script>
+        const app = Vue.createApp(myapp)
+        app.component('product-details', productDetails)
+        app.mount('#app')
+    </script>
 </body>
 
 </html>

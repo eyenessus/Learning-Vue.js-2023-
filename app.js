@@ -1,4 +1,4 @@
-var app = {
+var myapp = {
     data(){
         return {
             title:'Curso Vue JS 3',
@@ -58,4 +58,5 @@ var app = {
     },
 }
 
-Vue.createApp(app).mount('#app')
+
+
