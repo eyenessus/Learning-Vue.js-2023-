@@ -25,7 +25,7 @@
                     <p>{{product.title}}</p>
                     <strong v-if="product.starts > 0">{{product.starts}}</strong>
                     <img v-bind:src="product.image" v-bind:alt="product.title" style="width: 100px;">
-                    <button href="#" @click.prevent="addCart(product)" :disabled="inCart(product)">ADD CART</button>
+                    <button href="#" @click.prevent="addCart(product)" :disabled="inCart(product)" :class="[inCart(product) ? 'button-disabled' : '']">ADD CART</button>
                     <!-- <a href="#" v-else @click.prevent="removeCart(product)">REMOVE CART</a> -->
                 </li>
             </ul>
